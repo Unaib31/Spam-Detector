@@ -1,0 +1,10 @@
+# Direct dependencies for app.py
+# Verified against Python 3.14.x working environment — 2026-09-27
+streamlit==1.64.0
+tensorflow==2.22.0rc0   # only wheel available for Python 3.14; rc0 is stable in practice
+keras==3.8.0            # must be pinned — keras-nightly causes ImportError on Py3.14
+dm-tree==0.1.10         # required by keras 3.x as tree-traversal backend (optree DLL is blocked)
+scikit-learn            # loads tfidf_vectorizer.pkl; 1.9.0 installed (pkl was saved on 1.6.1 — works with warning)
+nltk                    # stopwords + PorterStemmer
+joblib                  # loads tfidf_vectorizer.pkl
+numpy                   # required by tensorflow, sklearn, nltk
